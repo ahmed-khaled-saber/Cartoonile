@@ -23,6 +23,31 @@ st.title("🎨 Image Cartoonizer")
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
 st.sidebar.header("🛠️ Cartoonization Controls")
+# 🏛️ University Logo
+st.sidebar.image("assets/nile_logo.png", use_container_width=True)
+
+# 🎨 App Logo and Name
+st.sidebar.image("assets/cartoonile_logo.png", use_container_width=True)
+st.sidebar.markdown("## 🎓 Cartoonile – Image Processing Project")
+
+# 👩‍🎓 Team Members
+st.sidebar.markdown("### 👨‍💻 Developed By")
+st.sidebar.image("assets/ahmed.jpg", width=100)
+st.sidebar.markdown("**Ahmed Khaled**  \nID: NU20XXXXX")
+
+st.sidebar.image("assets/gannat.jpg", width=100)
+st.sidebar.markdown("**Gannat**  \nID: NU20XXXXX")
+
+# 👨‍🏫 Supervisor
+st.sidebar.markdown("### 👨‍🏫 Supervised By")
+st.sidebar.image("assets/professor.jpg", width=100)
+st.sidebar.markdown("**Prof. Dr. [Supervisor Name]**  \nCourse Instructor")
+
+# 👩‍💼 Teaching Assistant
+st.sidebar.image("assets/ta.jpg", width=100)
+st.sidebar.markdown("**[TA Name]**  \nTeaching Assistant")
+
+
 stylization_intensity = st.sidebar.slider("Stylization Intensity", 1, 10, 5)
 edge_block = st.sidebar.slider("Edge Detection Block Size", 3, 25, 9, step=2)
 edge_c = st.sidebar.slider("Edge Threshold Constant (C)", -10, 10, 2)
