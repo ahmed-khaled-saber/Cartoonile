@@ -23,29 +23,41 @@ st.title("🎨 Image Cartoonizer")
 uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
 st.sidebar.header("🛠️ Cartoonization Controls")
-# 🏛️ University Logo
-st.sidebar.image("assets/nile_logo.png", use_container_width=True)
+# 🔝 Logos (Cartoonile + Nile University) side by side
+with st.sidebar:
+    col1, col2 = st.columns([1, 1])
+    with col1:
+        st.image("assets/cartoonile_logo.png", width=80)
+    with col2:
+        st.image("assets/nile_logo.png", width=80)
 
-# 🎨 App Logo and Name
-st.sidebar.image("assets/cartoonile_logo.png", use_container_width=True)
-st.sidebar.markdown("## 🎓 Cartoonile – Image Processing Project")
+    st.markdown("## 🎓 Cartoonile – Image Processing Project")
 
-# 👩‍🎓 Team Members
+# 🧪 Controls (Already here, keep as is)
+stylization_intensity = st.sidebar.slider("Stylization Intensity", 1, 10, 5)
+edge_block = st.sidebar.slider("Edge Detection Block Size", 3, 25, 9, step=2)
+edge_c = st.sidebar.slider("Edge Threshold Constant (C)", -10, 10, 2)
+line_thickness = st.sidebar.slider("Line Thickness", 1, 7, 1)
+
+# 👥 Team Grid
 st.sidebar.markdown("### 👨‍💻 Developed By")
-st.sidebar.image("assets/ahmed.jpg", width=100)
-st.sidebar.markdown("**Ahmed Khaled**  \nID: NU20XXXXX")
+row1_col1, row1_col2 = st.columns(2)
+with row1_col1:
+    st.image("assets/ahmed.jpeg", width=100)
+    st.markdown("**Ahmed Khaled**  \nID: 232000046")
+with row1_col2:
+    st.image("assets/gannat.jpg", width=100)
+    st.markdown("**Gannat Sharaf El-Deen**  \nID: NU20XXXXX")
 
-st.sidebar.image("assets/gannat.jpg", width=100)
-st.sidebar.markdown("**Gannat**  \nID: NU20XXXXX")
-
-# 👨‍🏫 Supervisor
+# 👨‍🏫 Supervisor & TA Grid
 st.sidebar.markdown("### 👨‍🏫 Supervised By")
-st.sidebar.image("assets/professor.jpg", width=100)
-st.sidebar.markdown("**Prof. Dr. [Supervisor Name]**  \nCourse Instructor")
-
-# 👩‍💼 Teaching Assistant
-st.sidebar.image("assets/ta.jpg", width=100)
-st.sidebar.markdown("**[TA Name]**  \nTeaching Assistant")
+row2_col1, row2_col2 = st.columns(2)
+with row2_col1:
+    st.image("assets/professor.jpg", width=100)
+    st.markdown("**Prof. Dr. [Walid Al-Attabany]**  \nCourse Instructor")
+with row2_col2:
+    st.image("assets/ta.jpg", width=100)
+    st.markdown("**[Eng. Shahenda Hatem]**  \nTeaching Assistant")
 
 
 stylization_intensity = st.sidebar.slider("Stylization Intensity", 1, 10, 5)
